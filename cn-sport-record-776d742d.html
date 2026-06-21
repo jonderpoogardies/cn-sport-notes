@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>满冠体育 · 简明指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fdefe6 0%, #fce2d1 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.7;
+            color: #3e2e24;
+        }
+
+        .page-card {
+            max-width: 860px;
+            width: 100%;
+            background: rgba(255, 247, 242, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 48px 48px 32px 32px;
+            box-shadow: 0 20px 40px rgba(180, 120, 80, 0.15),
+                        0 8px 16px rgba(0, 0, 0, 0.04);
+            padding: 2.8rem 2.5rem;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 215, 190, 0.5);
+        }
+
+        /* hero 区 */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.8rem;
+            padding-bottom: 2.2rem;
+            border-bottom: 2px dashed #f0cfbc;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #a85c3a, #cc7f5e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #5d4234;
+            max-width: 560px;
+            margin: 0 auto;
+            background: #fff8f0;
+            display: inline-block;
+            padding: 0.3rem 1.8rem;
+            border-radius: 40px;
+            box-shadow: 0 2px 8px rgba(210, 150, 110, 0.1);
+        }
+
+        /* 优势区 —— 三卡片 */
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2.5rem 0 2rem 0;
+        }
+
+        .advantage-item {
+            background: white;
+            padding: 1.8rem 1rem 1.5rem;
+            border-radius: 28px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(190, 130, 100, 0.08);
+            transition: transform 0.15s ease, box-shadow 0.2s;
+            border: 1px solid #f8e6db;
+        }
+
+        .advantage-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(170, 115, 80, 0.12);
+        }
+
+        .advantage-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.7rem;
+            display: block;
+        }
+
+        .advantage-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #7c5540;
+            margin-bottom: 0.4rem;
+        }
+
+        .advantage-item p {
+            font-size: 0.95rem;
+            color: #5a4236;
+            padding: 0 0.2rem;
+        }
+
+        /* 说明区 / 场景+提示 */
+        .info-section {
+            background: #fffbf7;
+            border-radius: 30px;
+            padding: 2rem 2rem 1.8rem;
+            margin: 2.2rem 0;
+            border-left: 6px solid #eab696;
+        }
+
+        .info-section h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #7b4d34;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-section p {
+            margin-bottom: 1rem;
+        }
+
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .info-section li {
+            padding: 0.5rem 0 0.5rem 1.6rem;
+            position: relative;
+        }
+
+        .info-section li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #bf7d5b;
+            font-weight: bold;
+            font-size: 1.6rem;
+            line-height: 1.4;
+        }
+
+        .tip-box {
+            background: #fcefe6;
+            border-radius: 24px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.5rem 0 0.5rem;
+            font-size: 0.98rem;
+            border: 1px solid #f0d5c0;
+        }
+
+        .tip-box strong {
+            color: #874f2f;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 2rem 1.6rem;
+            margin: 1.6rem 0 1.8rem;
+            box-shadow: 0 4px 12px rgba(170, 120, 80, 0.05);
+        }
+
+        .faq-mini h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #6e4a35;
+            margin-bottom: 1rem;
+            border-left: 5px solid #dba17b;
+            padding-left: 1rem;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f3e0d4;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #6e3f28;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-a {
+            color: #4d382c;
+            font-size: 0.95rem;
+            padding-left: 0.8rem;
+        }
+
+        /* 底部链接区域 */
+        .footer-links {
+            margin-top: 2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #f0d5c2;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #5a3d2e;
+        }
+
+        .footer-links a {
+            color: #9a5f3f;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.2rem 0.6rem;
+            border-radius: 40px;
+            background: #fff3ea;
+            transition: background 0.2s, color 0.2s;
+            display: inline-block;
+            margin: 0.2rem 0.3rem;
+        }
+
+        .footer-links a:hover {
+            background: #dbaa8f;
+            color: #2f1d15;
+        }
+
+        .footer-meta {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .page-card {
+                padding: 2rem 1.5rem;
+                border-radius: 32px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .advantage-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .advantage-item {
+                padding: 1.4rem 1rem;
+            }
+            .info-section {
+                padding: 1.6rem;
+            }
+            .faq-mini {
+                padding: 1.4rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+            .page-card {
+                padding: 1.5rem 1rem;
+                border-radius: 28px;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-card">
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>满冠体育</h1>
+        <p>一份简明指南 · 让访问更从容</p>
+    </div>
+
+    <!-- 优势区 三卡片 -->
+    <div class="advantage-grid">
+        <div class="advantage-item">
+            <span class="advantage-icon">📋</span>
+            <h3>信息清晰</h3>
+            <p>结构分明，内容平实，你可以快速找到关注的体育资讯与引导。</p>
+        </div>
+        <div class="advantage-item">
+            <span class="advantage-icon">🛡️</span>
+            <h3>浏览提醒</h3>
+            <p>注意甄别信息来源，建议在稳定网络环境下访问，保持良好体验。</p>
+        </div>
+        <div class="advantage-item">
+            <span class="advantage-icon">🧭</span>
+            <h3>路径直接</h3>
+            <p>从首页到各板块均有清晰指引，减少跳转中的疑惑。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：场景 + 提示 -->
+    <div class="info-section">
+        <h2>🏸 关于访问与使用</h2>
+        <p>无论你是初次接触还是已熟悉体育平台，保持轻松的心态往往能获得更好的浏览感受。<strong>满冠体育</strong> 提供的信息覆盖多个运动领域，页面设计注重阅读舒适度。下面几点或许对你有所帮助：</p>
+        <ul>
+            <li><strong>先浏览导航区域</strong>——大多数内容都可以在主导航中找到入口，不必从一个页面反复跳转。</li>
+            <li><strong>留意页面提示</strong>——部分功能或说明会以标注形式出现，稍加留意即可。</li>
+            <li><strong>合理使用搜索</strong>——如果想快速定位具体项目或关键词，站内搜索是比较高效的途径。</li>
+        </ul>
+        <div class="tip-box">
+            💡 <strong>小提醒：</strong> 在访问过程中，如果页面加载稍慢，可尝试刷新或检查本地网络。另外，建议从官方渠道直接进入 <a href="https://cn-sport-mg.com" style="color:#8b563b; text-decoration:underline; font-weight:500; background:transparent; padding:0 2px;">满冠体育</a>，以确保内容准确。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h3>❓ 常见疑问摘要</h3>
+        <div class="faq-item">
+            <span class="faq-q">▸ 如何查找特定运动项目的信息？</span>
+            <div class="faq-a">你可以在首页的导航栏或分类模块中按兴趣选择，也可以通过搜索框输入关键词。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">▸ 页面显示的资讯更新时间是什么？</span>
+            <div class="faq-a">多数内容会标注发布时间，一般来说近期内容会置顶或归入“最新”板块，你可以按需筛选。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">▸ 移动端浏览需要注意什么？</span>
+            <div class="faq-a"><strong>满冠体育</strong> 页面适配多数移动设备，如果遇到排版重叠，可尝试横竖屏切换或更新浏览器版本。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <p>如果你想了解更多，可以直接访问 <a href="https://cn-sport-mg.com">满冠体育</a>，那里有更完整的分类和动态内容。</p>
+        <p style="margin-top:0.8rem;">也可通过站内指引获取更多帮助。</p>
+        <div class="footer-meta">
+            <span>— 页面仅供介绍，内容以实际网站为准 —</span>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
